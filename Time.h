@@ -7,6 +7,8 @@
 using namespace std;
 
 class Time {
+    
+    
     public:
         Time();
         Time( int Nmonth, int Nday, int Nyear );
@@ -28,6 +30,8 @@ class Time {
         int convertToMinutes() const;    
     
         Time operator-( Time ) const;
+        friend ostream& operator<< (ostream& , Time );
+    
     
     private:
         unsigned int year;
