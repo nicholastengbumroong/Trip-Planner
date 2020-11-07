@@ -27,19 +27,19 @@ Location::Location(const string& streetAddress, const string& city, const string
     this->country = country;
 }
 
-string Location::getStreet(){
+const string Location::getStreet()const{
     return streetAddress;
 }
 
-string Location::getCity(){
+const string Location::getCity() const{
     return city;
 }
 
-string Location::getStateOrProvince(){
+const string Location::getStateOrProvince() const{
     return stateOrProvince;
 }
 
-string Location::getCountry(){
+const string Location::getCountry() const{
     return country;
 }
         
@@ -60,8 +60,10 @@ void Location::setCountry(const string& country){
     this->country = country;
 }
 
-void Location::displayLocation(){
-    cout << streetAddress << endl;
-    cout << city << ", " << stateOrProvince << endl;
-    cout << country;
+ostream& operator << (ostream& out, const Location& loc){
+    out << loc.getStreet() << endl;
+    out << loc.getCity() << ", " << loc.getStateOrProvince() << endl;
+    out << loc.getCountry() << endl;
+
+    return out;
 }
