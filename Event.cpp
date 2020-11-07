@@ -5,21 +5,21 @@ Event::Event() {
     description = "";
     price = 0;
 }
-Event::Event(string &n, Time s, Time e) {
+Event::Event(const string &n, const Time &s, const Time &e) {
     name = n;
     description = "";
     price = 0;
     start = s;
     end = e;
 }
-Event::Event(string &n, int p, Time s, Time e) {
+Event::Event(const string &n, int p, const Time &s, const Time &e) {
     name = n;
     description = "";
     price = p;
     start = s;
     end = e;
 }
-Event::Event(string &n, string &d, int p, Time &s, Time &e, Location &l) {
+Event::Event(const string &n, const string &d, int p, const Time &s, const Time &e, const Location &l) {
     name = n;
     description = d;
     price = p;
@@ -35,15 +35,15 @@ Time Event::getStartTime() const { return start; }
 Time Event::getEndTime() const { return end; }
 Location Event::getLocation() const { return loc; }
 
-void Event::setName(string &n) { name = n; }
-void Event::setDescription(string &d) { description = d; }
+void Event::setName(const string &n) { name = n; }
+void Event::setDescription(const string &d) { description = d; }
 void Event::setPrice(int p) { price = p; }
-void Event::setStartTime(Time &s) { start = s; }
-void Event::setEndTime(Time &e) { end = e; }
-void Event::setLocaion(Location &l) { loc = l; }
+void Event::setStartTime(const Time &s) { start = s; }
+void Event::setEndTime(const Time &e) { end = e; }
+void Event::setLocaion(const Location &l) { loc = l; }
 
 //Need Time implementation to finish this
-ostream & operator<<(ostream &out, Event &ev) {
+ostream & operator<<(ostream &out, const Event &ev) {
     //out << "(" << ev.start << " - " << ev.end << ")  ";
     out << ev.name << endl;
     out << "\t" << "Location: " << ev.loc.getStreet() << endl;

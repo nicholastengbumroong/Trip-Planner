@@ -4,7 +4,6 @@
 #include "Location.h"
 #include "Time.h"
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
@@ -17,9 +16,9 @@ class Event {
         Location loc;
     public:
         Event();
-        Event(string &n, Time s, Time e);
-        Event(string &n, int p, Time s, Time e);
-        Event(string &n, string &d, int p, Time &s, Time &e, Location &l);
+        Event(const string &n, const Time &s, const Time &e);
+        Event(const string &n, int p, const Time &s, const Time &e);
+        Event(const string &n, const string &d, int p, const Time &s, const Time &e, const Location &l);
 
         string getName() const;
         string getDescription() const;
@@ -28,12 +27,12 @@ class Event {
         Time getEndTime() const;
         Location getLocation() const;
         
-        void setName(string &name);
-        void setDescription(string &description);
+        void setName(const string &name);
+        void setDescription(const string &description);
         void setPrice(int price);
-        void setStartTime(Time &start);
-        void setEndTime(Time &end);
-        void setLocaion(Location &loc);
+        void setStartTime(const Time &start);
+        void setEndTime(const Time &end);
+        void setLocaion(const Location &loc);
         
         /*
             *****Day 1*****
@@ -58,7 +57,7 @@ class Event {
 
         */
 
-        friend ostream & operator<<(ostream &out, Event &e);
+        friend ostream & operator<<(ostream &out, const Event &e);
 };
 
 #endif
