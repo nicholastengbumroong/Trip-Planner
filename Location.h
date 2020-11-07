@@ -1,7 +1,7 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 
-Location {
+class Location {
 };
 
 #endif
