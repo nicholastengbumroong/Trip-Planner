@@ -16,6 +16,14 @@ class Location{
         Location();
         Location(const string&, const string&, const string&);
         Location(const string&, const string&, const string&, const string&);
+        string getStreet();
+        string getCity();
+        string getStateOrProvince();
+        string getCountry();
+        void setStreet();
+        void setCity();
+        void setStateOrProvince();
+        void setCountry();
         void displayLocation();
 
 
