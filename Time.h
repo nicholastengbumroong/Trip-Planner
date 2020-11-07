@@ -6,11 +6,11 @@
 
 using namespace std;
 
-Time {
+class Time {
     public:
         Time();
         Time( int Nmonth, int Nday, int Nyear );
-        Time( int Nmonth, int Nday, int Nyear, int Nhour, int Nminute, string Nampm );
+        Time( int Nmonth, int Nday, int Nyear, int Nhour, int Nminute );
         Time( int Nhour, int Nminute );
     
         void setMonth( int );
@@ -18,31 +18,24 @@ Time {
         void setYear( int );
         void setHour( int );
         void setMinute( int );
-        void setAmpm( string );
     
         int getMonth() const;
         int getDay() const;
         int getYear() const;
         int getHour() const;
-        string getAmpm() const;
+        int getMinute() const;
     
         int convertToMinutes() const;    
     
-        operator-( Time ) const;
+        Time operator-( Time ) const;
     
     private:
         unsigned int year;
         unsigned int month;
-        unisgned int day;
+        unsigned int day;
         
         unsigned int hour;
-        unsigned int minute;
-        string ampm;
-    
-    
-    
-    
-     
+        unsigned int minute; 
 };
 
 #endif
