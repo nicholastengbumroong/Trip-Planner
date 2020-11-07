@@ -8,7 +8,6 @@
 
 class Trip {
     private:
-        vector<Trip> tripList; 
         vector<Event> eventList;
         Time time; 
         Location location; 
@@ -17,8 +16,9 @@ class Trip {
     public:
         Trip(); 
         Trip(const Location&, const Time&); 
-        Trip(); 
 
+        void addEvent() const; 
+        void removeEvent(const string& eventName); 
         void createInfoFile() const; 
 
 
