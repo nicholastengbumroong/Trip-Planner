@@ -13,7 +13,6 @@ Time :: Time()
     
     hour = 0;
     minute = 0;
-    ampm = '';
 }
 
 Time :: Time( int Nmonth, int Nday, int Nyear )
@@ -24,7 +23,7 @@ Time :: Time( int Nmonth, int Nday, int Nyear )
     
 }
 
-Time :: Time( int Nmonth, int Nday, int Nyear, int Nhour, int Nminute, string Nampm )
+Time :: Time( int Nmonth, int Nday, int Nyear, int Nhour, int Nminute )
 {
     month = Nmonth;
     day = Nday;
@@ -32,7 +31,6 @@ Time :: Time( int Nmonth, int Nday, int Nyear, int Nhour, int Nminute, string Na
     
     hour = Nhour;
     minute = Nminute;
-    ampm = Nampm;
 }
 
 Time :: Time( int Nhour , int Nminute )
@@ -66,11 +64,6 @@ void Time :: setMinute( int Nmin )
     minute = Nmin;
 }
 
-void Time :: setAmpm( string Nampm )
-{
-    ampm = Nampm;
-}
-
 int Time :: getMonth() const
 {
     return month;
@@ -91,9 +84,9 @@ int Time :: getHour() const
     return hour;
 }
 
-string Time :: getAmpm() const
+int Time :: getMinute() const
 {
-    return ampm;
+    return minute;
 }
 
 int Time :: convertToMinutes() const
@@ -107,7 +100,6 @@ int Time :: convertToMinutes() const
 
 Time Time :: operator-( Time time1 ) const
 {
-    Time newTime;
     int num1 = time1.convertToMinutes();
     int num2 = this->convertToMinutes();
     int hourVal; // bigger
@@ -135,7 +127,7 @@ Time Time :: operator-( Time time1 ) const
     int newHour = hourVal - hourVal2;
     int newMin = minuteVal - minuteVal2;
     
-    newTime( newHour, newMin );
+    Time newTime( newHour, newMin );
     
     return newTime;
 }
