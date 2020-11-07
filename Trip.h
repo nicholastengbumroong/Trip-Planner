@@ -1,7 +1,31 @@
 #ifndef TRIP_H
 #define TRIP_H
 
-Trip {
+#include <vector>
+#include <string> 
+#include "Time.h"
+#include "Location.h"
+#include "Event.h" 
+
+using namespace std; 
+
+class Trip {
+    private:
+        vector<Event> eventList;
+        Location location; 
+        Time time; 
+        Time duration; 
+
+    public:
+        Trip(); 
+        Trip(const Location&, const Time& time);
+        Trip(const Location&, const Time& time, const Time& duration);
+
+        void addEvent(const Event&); 
+        void removeEvent(const string& eventName); 
+        void createInfoFile() const; 
+        void createItinerary() const; 
+
 };
 
-#endif;
+#endif
