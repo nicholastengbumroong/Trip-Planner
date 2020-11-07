@@ -38,7 +38,7 @@ void Trip::createInfoFile() const {
     infoFile << location << endl; 
     //infoFile << time;
     for (Event event : eventList){
-        //infoFile << event; 
+        infoFile << event; 
     } 
     
 }
@@ -46,6 +46,7 @@ void Trip::createInfoFile() const {
 void Trip::createItinerary() const {
     ofstream it("Itinerary.txt");
     it << "------ITINERARY------" << endl; 
-    it << 
-    
+    for (Event event : eventList){
+        it << event; 
+    } 
 }
