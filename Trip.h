@@ -6,22 +6,22 @@
 #include "Location.h"
 #include "Event.h" 
 
+using namespace std; 
+
 class Trip {
     private:
         vector<Event> eventList;
-        Time time; 
         Location location; 
-         
+        Time time; 
+        Time duration; 
 
     public:
         Trip(); 
         Trip(const Location&, const Time&); 
 
-        void addEvent() const; 
+        void addEvent(const Event&) const; 
         void removeEvent(const string& eventName); 
         void createInfoFile() const; 
-
-
 
 };
 

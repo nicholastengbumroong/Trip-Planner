@@ -27,10 +27,6 @@ class Location{
         void displayLocation();
 
 
-<<<<<<< HEAD
-class Location {
-=======
->>>>>>> c2882a96f486203ff8c471d73580f71850a846b8
 };
 
 #endif
