@@ -16,15 +16,15 @@ class Location{
         Location();
         Location(const string&, const string&, const string&);
         Location(const string&, const string&, const string&, const string&);
-        string getStreet();
-        string getCity();
-        string getStateOrProvince();
-        string getCountry();
-        void setStreet();
-        void setCity();
-        void setStateOrProvince();
-        void setCountry();
-        void displayLocation();
+        const string getStreet() const; 
+        const string getCity() const;
+        const string getStateOrProvince() const;
+        const string getCountry() const;
+        void setStreet(const string&);
+        void setCity(const string&);
+        void setStateOrProvince(const string&);
+        void setCountry(const string&);
+        friend ostream& operator << (ostream& out, const Location& loc);
 
 
 };
