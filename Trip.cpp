@@ -36,7 +36,7 @@ void Trip::removeEvent(const string& eventName) {
 void Trip::createInfoFile() const {
     ofstream infoFile("InfoFile.txt");
     infoFile << location << endl; 
-    //infoFile << time;
+    infoFile << time.getMonth() << "/" << time.getDay() << "/" << time.getYear() << endl;
     for (Event event : eventList){
         infoFile << event; 
     } 
