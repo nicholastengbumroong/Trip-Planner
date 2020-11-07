@@ -1,8 +1,5 @@
 #include "Time.h"
 
-#include <string>
-#include <iostream>
-
 using namespace std;
 
 Time :: Time()
@@ -127,7 +124,28 @@ Time Time :: operator-( Time time1 ) const
     int newHour = hourVal - hourVal2;
     int newMin = minuteVal - minuteVal2;
     
+    if ( newHour > 12 )
+    {
+        newHour = newHour - 12;
+    }
+    
     Time newTime( newHour, newMin );
     
     return newTime;
+}
+
+ostream& operator<< (ostream& out, Time t1)
+{
+    out << t1.hour;
+    out << ":";
+    if ( t1.minute > 9 )
+    {
+        out << t1.minute;
+    }
+    
+    else
+    {
+        out << "0" << t1.minute;
+    }
+    return out;
 }
