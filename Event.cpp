@@ -50,6 +50,6 @@ ostream & operator<<(ostream &out, const Event &ev) {
     out << "\t" << "          " << ev.loc.getCity() << ", " << ev.loc.getStateOrProvince() << endl;
     out << "\t" << "          " << ev.loc.getCountry() << endl;
     out << "\t" << "Expected Price: $" << ev.price << endl;
-    out << "\t" << "Description: " << ev.description << endl;
+    out << "\t" << "Description: " << ev.description << endl << endl;
     return out;
 }
