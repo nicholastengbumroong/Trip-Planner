@@ -1,0 +1,3 @@
+# TRIP PLANNER
+This program is designed to create an itinerary for the user to manage trips and events. The user can input various trips and create a calender that is output to a .txt file. This schedule is designed to be saved in order for the user to access it later on, especially since it is hard for users to go places because of COVID-19. Events can be created using a month, date, and year format as well as time slots for each event that the user can enter. Once the user is finished entering their unmananged schedule, the program will automatically create a personal schedule for the user to implement and utilize.
+
