@@ -7,31 +7,50 @@ void printMenu(Trip& userTrip);
 
 int main()
 {
-  // Time start1(1, 30);
-  // Time end1(6, 40);
-  // Event event1("supercool event", start1, end1);
-  // event1.setDescription("This event is super cool");
 
-  // Location loc;
-  // loc.setCountry("United States");
-  // loc.setStateOrProvince("Nevada");
-  // loc.setCity("City of Nevada");
-  // loc.setStreet("1232 Nevada Street");
+  string tripLocAddress;
+  string tripLocCity;
+  string tripLocState; 
+  string tripLocCountry; 
 
-  // Time tripTime(2, 23, 2012);
-  // Trip trip(loc, tripTime);
+  cout << "Enter trip street address: " << endl;
+  getline(cin, tripLocAddress);
+  cout << "Enter trip city: " << endl;
+  getline(cin, tripLocCity);
+  cout << "Enter trip state: " << endl;
+  getline(cin, tripLocState);
+  cout << "Enter trip country: " << endl;
+  getline(cin, tripLocCountry);
 
-  // trip.addEvent(event1);
+  Location tripLocation(tripLocAddress, tripLocCity, tripLocState, tripLocCountry);
 
-  // trip.createInfoFile();
-  // trip.createItinerary();
+  int tripMonthStart;
+  int tripDayStart; 
+  int tripYearStart;
+  int tripMonthEnd;
+  int tripDayEnd; 
+  int tripYearEnd;
 
-  Trip trip;
+  cout << "Enter trip start month: " << endl; 
+  cin >> tripMonthStart; 
+  cout << "Enter trip start day: " << endl; 
+  cin >> tripDayStart; 
+  cout << "Enter trip start year: " << endl;
+  cin >> tripYearStart;
+
+  cout << "Enter trip end month: " << endl; 
+  cin >> tripMonthEnd; 
+  cout << "Enter trip end day: " << endl; 
+  cin >> tripDayEnd; 
+  cout << "Enter trip end year: " << endl;
+  cin >> tripYearEnd;  
+
+  Time tripStart(tripMonthStart, tripDayStart, tripYearStart); 
+  Time tripEnd(tripMonthEnd, tripDayEnd, tripYearEnd);
+
+  Trip trip(tripLocation, tripStart, tripEnd);
   
   printMenu(trip);
-  // for (Event event : trip.eventList) {
-  //   cout << event.getName(); 
-  // }
   return 0;
 }
 
@@ -63,6 +82,9 @@ void printMenu(Trip &userTrip)
 
     string eventName = "";
     string eventDesc = "";
+    string eventLocCountry = "";
+    string eventLocState = "";
+    string eventLocCity = "";
     int startTimeHour;
     int startTimeMinute;
     int endTimeHour;
@@ -85,6 +107,13 @@ void printMenu(Trip &userTrip)
       getline(cin, eventDesc);
       cout << "Enter the event price: " << endl;
       cin >> eventPrice;
+      // cout << "Enter event country: " << endl; 
+      // cin.ignore();
+      // getline(cin, eventLocCountry);
+      // cout << "Enter event state: " << endl; 
+      // getline(cin, eventLocState);
+      // cout << "Enter event city: " << endl; 
+      // getline(cin, eventLocCity); 
       
       char know;
       cout << "Do you know the start and end time (y/n): ";
@@ -108,16 +137,23 @@ void printMenu(Trip &userTrip)
         end.setHour(endTimeHour);
         end.setMinute(endTimeMinute);
       }
-
       else
       {
         start.setHour(0);
         start.setMinute(0);
         end.setHour(23);
         end.setMinute(59);
+
+    
       }
-      Event newEvent(eventName, eventPrice, start, end);
+      Location eventLoc(userTrip.getTripLocation().getCity(), 
+                        userTrip.getTripLocation().getStateOrProvince(),
+                        userTrip.getTripLocation().getCountry());
+
+      Event newEvent(eventName, eventDesc, eventPrice, start, end, eventLoc);
+      
       userTrip.addEvent(newEvent);
+      
       loop = false;
       break;
     }

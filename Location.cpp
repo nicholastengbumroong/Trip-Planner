@@ -13,12 +13,14 @@ Location::Location(){
 }
 
 //if user lives in a country without a province/state
+/*
 Location::Location(const string& streetAddress, const string& city, const string& country){
     this->streetAddress = streetAddress;
     this->city = city;
     this->stateOrProvince = country; //e.g "Andorra, Andorra" or "Singapore, Singapore" instead of "California, USA";
     this->country = country;
 }
+*/
 
 Location::Location(const string& streetAddress, const string& city, const string& stateOrProvince, const string& country){
     this->streetAddress = streetAddress;
@@ -27,6 +29,13 @@ Location::Location(const string& streetAddress, const string& city, const string
     this->country = country;
 }
 
+
+Location :: Location(const string& city, const string & state, const string& country)
+{
+    this->city = city;
+    this->stateOrProvince = state;
+    this->country = country;
+}
 
 
 const string Location::getStreet()const{

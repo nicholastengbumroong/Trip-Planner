@@ -14,8 +14,9 @@ class Location{
 
     public:
         Location();
-        Location(const string&, const string&, const string&);
+        //Location(const string&, const string&, const string&);
         Location(const string&, const string&, const string&, const string&);
+        Location(const string&, const string &, const string&);
         const string getStreet() const; 
         const string getCity() const;
         const string getStateOrProvince() const;
