@@ -6,19 +6,20 @@ using namespace std;
 
 Trip::Trip() {
     location = Location(); 
-    time = Time(); 
-    duration = Time();
+    timeStart = Time(); 
+    timeEnd = Time();
 }
 
-Trip::Trip(const Location& loc, const Time& t) {
+Trip::Trip(const Location& loc, const Time& start) {
     location = loc; 
-    time = t;  
+    timeStart = start;
+    timeEnd = Time();   
 }
 
-Trip::Trip(const Location& loc, const Time& t, const Time& d){
+Trip::Trip(const Location& loc, const Time& start, const Time& end){
     location = loc; 
-    time = t; 
-    duration = d; 
+    timeStart = start; 
+    timeEnd = end; 
 }
 
 void Trip::addEvent(const Event& newEvent) {
@@ -36,7 +37,9 @@ void Trip::removeEvent(const string& eventName) {
 void Trip::createInfoFile() const {
     ofstream infoFile("InfoFile.txt");
     infoFile << location << endl; 
-    infoFile << time.getMonth() << "/" << time.getDay() << "/" << time.getYear() << endl;
+    infoFile << timeStart.getMonth() << "/" << timeStart.getDay() << "/" << timeStart.getYear() << " - ";
+    infoFile << timeEnd.getMonth() << "/" << timeEnd.getDay() << "/" << timeEnd.getYear() << endl;
+
     for (Event event : eventList){
         infoFile << event; 
     } 
@@ -50,3 +53,7 @@ void Trip::createItinerary() const {
         it << event; 
     } 
 }
+
+Location Trip::getTripLocation() const {
+    return location;
+} 

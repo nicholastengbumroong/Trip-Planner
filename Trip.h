@@ -13,8 +13,8 @@ class Trip {
     private:
         
         Location location; 
-        Time time; 
-        Time duration; 
+        Time timeStart; 
+        Time timeEnd; 
 
     public:
         vector<Event> eventList;
@@ -26,6 +26,7 @@ class Trip {
         void removeEvent(const string& eventName); 
         void createInfoFile() const; 
         void createItinerary() const; 
+        Location getTripLocation() const; 
 
 };
 

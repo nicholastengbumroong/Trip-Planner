@@ -44,7 +44,8 @@ void Event::setLocaion(const Location &l) { loc = l; }
 
 //Need Time implementation to finish this
 ostream & operator<<(ostream &out, const Event &ev) {
-    out << ev.name << " " << "(" << ev.start << " - " << ev.end << ")" << endl;
+    out << "(" << ev.start << " - " << ev.end << ") - ";
+    out << ev.name << endl;
     out << "\t" << "Location: " << ev.loc.getStreet() << endl;
     out << "\t" << "          " << ev.loc.getCity() << ", " << ev.loc.getStateOrProvince() << endl;
     out << "\t" << "          " << ev.loc.getCountry() << endl;
