@@ -11,12 +11,13 @@ using namespace std;
 
 class Trip {
     private:
-        vector<Event> eventList;
+        
         Location location; 
         Time time; 
         Time duration; 
 
     public:
+        vector<Event> eventList;
         Trip(); 
         Trip(const Location&, const Time& time);
         Trip(const Location&, const Time& time, const Time& duration);
